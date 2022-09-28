@@ -1,43 +1,72 @@
 import {
-    Text,
     Flex,
-    Spacer,
-    Stack
 } from '@chakra-ui/react';
 
 import { VegaLite, VisualizationSpec } from 'react-vega';
 
-const Map = () => {
+type MapProps = {
+    width: number;
+    height: number;
+}
+
+const Map = ({width, height}: MapProps) => {
 
     const spec: VisualizationSpec = {
-        width: 400,
-        height: 200,
-        mark: 'bar',
-        encoding: {
-          x: { field: 'a', type: 'ordinal' },
-          y: { field: 'b', type: 'quantitative' },
+        width: width,
+        height: height,
+        autosize: {
+            resize: true
         },
-        data: { name: 'table' }, // note: vega-lite data attribute is a plain object instead of an array
-      }
-      
-      const barData = {
-        table: [
-          { a: 'A', b: 28 },
-          { a: 'B', b: 55 },
-          { a: 'C', b: 43 },
-          { a: 'D', b: 91 },
-          { a: 'E', b: 81 },
-          { a: 'F', b: 53 },
-          { a: 'G', b: 19 },
-          { a: 'H', b: 87 },
-          { a: 'I', b: 52 },
-        ],
+        data: {
+            url: "negeri.json",
+            format: {
+                type: "topojson",
+                feature: "negeri"
+            }
+        },
+        transform: [{
+            lookup: "properties.name",
+            from: {
+                data: {
+                    url: "data/cases/cases_per_100k.csv"
+                },
+                key: "state",
+                fields: ["cases_per_100k"]
+            },
+        }],
+        mark: {
+            type: "geoshape",
+            stroke: "darkgray"
+        },
+        projection: {
+            type: "equirectangular"
+        },
+        encoding: {
+            color: {
+                field: "cases_per_100k",
+                type: "quantitative",
+                title: "Cases per 100k Population",
+            },
+            tooltip: [
+                {
+                    field: "properties.name",
+                    type: "nominal",
+                    title: "State"
+                },
+                {
+                    field: "cases_per_100k",
+                    type: "quantitative",
+                    title: "Cases per 100k Population"
+                }
+            ]
+        },
+        config: {
+            background: "transparent",
+        }
       }
 
     return (
-        <Flex w="100%">
-            <VegaLite spec={spec} data={barData} />
-        </Flex>
+        <VegaLite spec={spec} actions = {false}/>
     )
 }
 

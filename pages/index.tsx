@@ -14,10 +14,19 @@ import {
   Stack,
   Grid,
   GridItem,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Button,
 } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import { useColorMode } from '@chakra-ui/react';
 import {IoSunny, IoMoon} from 'react-icons/io5';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import SelectFlag from '../src/components/SelectFlag';
+import { IFlag } from '../src/Interfaces';
 
 import Map from '../src/components/Map';
 import TrellisArea from '../src/components/TrellisArea';
@@ -31,6 +40,11 @@ const Home: NextPage = () => {
   const {toggleColorMode} = useColorMode();
   const [toggle, setToggle] = useState<boolean>(false);
   const [modeText, setModeText] = useState<string>('Dark Mode');
+  const [currentFlag, setCurrentFlag] = useState<IFlag>( {src: 'icons/state/selangor.png', text: 'Selangor'})
+
+  useEffect(() => {
+    console.log(currentFlag)  
+  }, [currentFlag])
 
   const total_data = {
     total_population: 32657100, 
@@ -38,6 +52,25 @@ const Home: NextPage = () => {
     total_deaths: 36277, 
     total_vax: 27879191, 
   }
+
+  const flags = [
+    {src: 'icons/state/johor.png', text: 'Johor'},
+    {src: 'icons/state/kedah.png', text: 'Kedah'},
+    {src: 'icons/state/kelantan.png', text: 'Kelantan'},
+    {src: 'icons/state/melaka.png', text: 'Melaka'},
+    {src: 'icons/state/negeri sembilan.png', text: 'Negeri Sembilan'},
+    {src: 'icons/state/pahang.png', text: 'Pahang'},
+    {src: 'icons/state/perak.png', text: 'Perak'},
+    {src: 'icons/state/perlis.png', text: 'Perlis'},
+    {src: 'icons/state/pulau pinang.png', text: 'Pulau Pinang'},
+    {src: 'icons/state/sabah.png', text: 'Sabah'},
+    {src: 'icons/state/sarawak.png', text: 'Sarawak'},
+    {src: 'icons/state/selangor.png', text: 'Selangor'},
+    {src: 'icons/state/terengganu.png', text: 'Terengganu'},
+    {src: 'icons/state/w.p. kuala lumpur.png', text: 'W.P. Kuala Lumpur'},
+    {src: 'icons/state/w.p. labuan.png', text: 'W.P. Labuan'},
+    {src: 'icons/state/w.p. putrajaya.png', text: 'W.P. Putrajaya'},
+  ]
 
   return (
     <VStack paddingX={200} paddingY={50}>
@@ -66,6 +99,8 @@ const Home: NextPage = () => {
       <Box w="100%">
         <Heading size="xl">Sub Title</Heading>
       </Box>
+      <Divider />
+
       <Box w="100%">
         <Map width={1355} height={500}/>
       </Box>
@@ -82,6 +117,15 @@ const Home: NextPage = () => {
           <BarChart width={800} height={500}/>
         </GridItem>
       </Grid>
+      
+      <Box w="100%">
+
+        <SelectFlag flags={flags} value={currentFlag} onChange={(newFlag) => {setCurrentFlag(newFlag)}}/>
+
+        <Heading>CASES BY AGE GROUP</Heading>
+        <DonutChart width={400} height={500}/>
+      </Box>
+
 
     </VStack>
   )

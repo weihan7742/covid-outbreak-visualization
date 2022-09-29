@@ -6,19 +6,27 @@ type ChartProps = {
     state: string
 }
 
-const DonutChart = ({width, height, state}: ChartProps) => {
+const StackedAreaChart = ({width, height, state}: ChartProps) => {
 
     const spec: VisualizationSpec = {
         width: width,
         height: height,
         data: {
-            url: "data/cases/age_cases.csv"
+            url: "data/vax/vax_brand_time.csv"
         },
-        transform:[{filter: {field: "state", equal: state}}],
-        mark: {type: "arc", innerRadius: 100},
+        mark: "area",
+        
+        transform:[
+            {filter: {field: "state", equal: state}},
+            {filter: {field: "date", range: [
+                {year: 2022, month: 3, date: 10},
+                {year: 2022, month: 9, date: 10}
+            ]}}
+        ],
         encoding: {
-            theta: {field: "value", type: "quantitative"},
-            color: {field: "variable", type: "nominal", title: "Age Group"},
+            x: {field: "date", type: "temporal", title: "Date"},
+            y: {field: "value", type: "quantitative", stack: "normalize"},
+            color: {field: "variable", type: "nominal", title: "Vaccine Brand"},
         },
         config: {
             background: "transparent",
@@ -29,7 +37,7 @@ const DonutChart = ({width, height, state}: ChartProps) => {
                 domain: false,
                 grid: false,
                 ticks: false,
-                labels: false,
+                // labels: false,
                 title: null
             },
             axisY: {
@@ -46,4 +54,4 @@ const DonutChart = ({width, height, state}: ChartProps) => {
     )
 }
 
-export default DonutChart;
+export default StackedAreaChart;

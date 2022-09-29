@@ -6,19 +6,19 @@ type ChartProps = {
     state: string
 }
 
-const DonutChart = ({width, height, state}: ChartProps) => {
+const SingleStackedBar = ({width, height, state}: ChartProps) => {
 
     const spec: VisualizationSpec = {
         width: width,
         height: height,
         data: {
-            url: "data/cases/age_cases.csv"
+            url: "data/vax/total_vax.csv"
         },
-        transform:[{filter: {field: "state", equal: state}}],
-        mark: {type: "arc", innerRadius: 100},
+        transform: [{filter: {field: "state", equal: state}}],
+        mark: "bar",
         encoding: {
-            theta: {field: "value", type: "quantitative"},
-            color: {field: "variable", type: "nominal", title: "Age Group"},
+            y: {field: "value", type: "quantitative", title: "Number of Vaccinations"},
+            color: {field: "variable", type: "nominal", title: "Vaccine Brand"},
         },
         config: {
             background: "transparent",
@@ -29,7 +29,7 @@ const DonutChart = ({width, height, state}: ChartProps) => {
                 domain: false,
                 grid: false,
                 ticks: false,
-                labels: false,
+                // labels: false,
                 title: null
             },
             axisY: {
@@ -46,4 +46,4 @@ const DonutChart = ({width, height, state}: ChartProps) => {
     )
 }
 
-export default DonutChart;
+export default SingleStackedBar;

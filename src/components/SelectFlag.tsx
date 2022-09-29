@@ -24,7 +24,7 @@ const SelectFlag = (props: ICustomSelectProps) => {
 
     return (
         <Menu>
-            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} w="11%" >
+            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} w="17%" >
                 <HStack>
                     <Image
                         boxSize='2rem'

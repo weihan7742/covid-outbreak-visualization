@@ -6,19 +6,31 @@ type ChartProps = {
     state: string
 }
 
-const DonutChart = ({width, height, state}: ChartProps) => {
+const VerticalBarChart = ({width, height, state}: ChartProps) => {
 
     const spec: VisualizationSpec = {
         width: width,
         height: height,
         data: {
-            url: "data/cases/age_cases.csv"
+            url: "data/cases/vax_cases.csv"
         },
-        transform:[{filter: {field: "state", equal: state}}],
-        mark: {type: "arc", innerRadius: 100},
+        transform: [{filter: {field: "state", equal: state}}],
+        layer: [{
+            mark: "bar"
+        }, {
+            mark: {
+                type: "text",
+                align: "center",
+                baseline: "middle",
+                dy: -10,
+            },
+            encoding: {
+                text: {field: "value", type: "quantitative"}
+            }
+        }],
         encoding: {
-            theta: {field: "value", type: "quantitative"},
-            color: {field: "variable", type: "nominal", title: "Age Group"},
+            x: {field: "variable", type: "nominal", axis: {labelAngle: 0}, title: "Vaccine Phases"},
+            y: {field: "value", type: "quantitative", title: "Number of Cases"},
         },
         config: {
             background: "transparent",
@@ -29,7 +41,7 @@ const DonutChart = ({width, height, state}: ChartProps) => {
                 domain: false,
                 grid: false,
                 ticks: false,
-                labels: false,
+                // labels: false,
                 title: null
             },
             axisY: {
@@ -46,4 +58,4 @@ const DonutChart = ({width, height, state}: ChartProps) => {
     )
 }
 
-export default DonutChart;
+export default VerticalBarChart;

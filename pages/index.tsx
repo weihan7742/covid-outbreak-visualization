@@ -34,6 +34,12 @@ import ProgressBar from '../src/components/ProgressBar';
 import BarChart from '../src/components/BarChart';
 import IsoType from '../src/components/IsoType';
 import DonutChart from '../src/components/DonutChart';
+import DeathByStatusLine from '../src/components/DeathByStatusLine';
+import BubblePlot from '../src/components/BubblePlot';
+import DosesStackedBar from '../src/components/DosesStackedBar';
+import VerticalBarChart from '../src/components/VerticalBarChart';
+import StackedAreaChart from '../src/components/StackedAreaChart';
+import SingleStackedBar from '../src/components/SingleStackedBar';
 
 const Home: NextPage = () => {
 
@@ -108,23 +114,52 @@ const Home: NextPage = () => {
         w="100%"
         templateColumns='repeat(8, 1fr)'
         gap={4}>
-        <GridItem colSpan={3} >
-          <Heading>CASES BY AGE GROUP</Heading>
-          <DonutChart width={400} height={500}/>
+        <GridItem colSpan={4} >
+        <Heading>DEATH PER 10K POPULATION</Heading>
+          <BarChart width={500} height={500}/>
         </GridItem>
-        <GridItem colSpan={5}>
-          <Heading>DEATH PER 10K POPULATION</Heading>
-          <BarChart width={800} height={500}/>
+        <GridItem colSpan={4}>
+        <Heading>COVID CASES PER STATE</Heading>
+        <BubblePlot width={500} height={500}/>
         </GridItem>
       </Grid>
-      
+
       <Box w="100%">
-
-        <SelectFlag flags={flags} value={currentFlag} onChange={(newFlag) => {setCurrentFlag(newFlag)}}/>
-
-        <Heading>CASES BY AGE GROUP</Heading>
-        <DonutChart width={400} height={500}/>
+      <SelectFlag flags={flags} value={currentFlag} onChange={(newFlag) => {setCurrentFlag(newFlag)}}/>
       </Box>
+
+      <Grid
+        w="100%"
+        templateColumns='repeat(8, 1fr)'
+        gap={4}>
+        <GridItem colSpan={4} >
+        <Heading>CASES BY AGE GROUP</Heading>
+        <DonutChart width={400} height={500} state={currentFlag.text}/>
+        </GridItem>
+        <GridItem colSpan={4}>
+        <Heading>CASES BY AGE GROUP</Heading>
+        <VerticalBarChart width={650} height={450} state={currentFlag.text}/>
+        </GridItem>
+      </Grid>
+
+      <Box w="100%">
+        <Heading>CASES BY AGE GROUP</Heading>
+        <DosesStackedBar width={1300} height={500} state={currentFlag.text}/>
+      </Box>
+
+      <Grid
+        w="100%"
+        templateColumns='repeat(8, 1fr)'
+        gap={4}>
+        <GridItem colSpan={2} >
+        <Heading>VACCINE BRANDS</Heading>
+        <SingleStackedBar width={150} height={500} state={currentFlag.text}/>
+        </GridItem>
+        <GridItem colSpan={6}>
+        <Heading>VACCINE BRANDS OVER TIME</Heading>
+        <StackedAreaChart width={1000} height={500} state={currentFlag.text}/>
+        </GridItem>
+      </Grid>
 
 
     </VStack>

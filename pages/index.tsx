@@ -112,7 +112,7 @@ const Home: NextPage = () => {
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
-        <Map width={1335} height={500}/>
+        <Map width={1335} height={500} toggle={toggle}/>
       </Box>
       <Grid
         w="100%"

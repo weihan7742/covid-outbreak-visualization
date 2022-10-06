@@ -1,15 +1,12 @@
-import {
-    Flex,
-} from '@chakra-ui/react';
-
 import { VegaLite, VisualizationSpec } from 'react-vega';
 
 type MapProps = {
     width: number;
     height: number;
+    toggle: boolean;
 }
 
-const Map = ({width, height}: MapProps) => {
+const Map = ({width, height, toggle}: MapProps) => {
 
     const spec: VisualizationSpec = {
         width: width,
@@ -62,6 +59,10 @@ const Map = ({width, height}: MapProps) => {
         },
         config: {
             background: "transparent",
+            legend: {
+                labelColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",
+            }
         }
       }
 

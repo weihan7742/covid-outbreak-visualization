@@ -147,7 +147,7 @@ const Home: NextPage = () => {
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
-        <DonutChart width={400} height={500} state={currentFlag.text}/>
+        <DonutChart width={400} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
         <GridItem colSpan={4}>
         <Heading>CASES BY VACCINATION STATUS</Heading>

@@ -39,7 +39,7 @@ const SelectFlag = (props: ICustomSelectProps) => {
             </MenuButton>
             <MenuList>
                 {props.flags.map((flag, key) => (
-                    <MenuItem key={key} onClick={() => props.onChange(flag)}>
+                    <MenuItem key={key} onClick={() => props.onChange?.(flag)}>
                         <Image
                         boxSize='2rem'
                         borderRadius='full'

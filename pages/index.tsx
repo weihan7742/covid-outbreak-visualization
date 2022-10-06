@@ -173,7 +173,7 @@ const Home: NextPage = () => {
         <GridItem colSpan={2} >
         <Heading>VACCINE BRANDS</Heading>
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing</Text>
-        <SingleStackedBar width={150} height={500} state={currentFlag.text}/>
+        <SingleStackedBar width={150} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
         <GridItem colSpan={6}>
         <Heading>VACCINE BRANDS OVER TIME</Heading>

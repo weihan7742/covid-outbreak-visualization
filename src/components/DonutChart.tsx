@@ -19,6 +19,10 @@ const DonutChart = ({width, height, state}: ChartProps) => {
         encoding: {
             theta: {field: "value", type: "quantitative"},
             color: {field: "variable", type: "nominal", title: "Age Group"},
+            tooltip: [
+                {field: "variable", "type": "nominal", "title": "Age Group"},
+                {field: "value", "type": "quantitative", "title": "Cases", format: ","}
+            ]
         },
         config: {
             background: "transparent",

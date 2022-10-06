@@ -19,7 +19,11 @@ const BarChart = ({width, height}: BarChartProps) => {
             },
             x: {
                 aggregate: "sum", field: "deaths_per_population", type:"quantitative"
-            }
+            },
+            tooltip: [
+                {field: "state", "type": "nominal", "title": "State"},
+                {field: "deaths_per_population", "type": "quantitative", "title": "Deaths per 100,000", format: ","}
+            ]
         },
         layer: [{
             mark: "bar"
@@ -31,7 +35,7 @@ const BarChart = ({width, height}: BarChartProps) => {
                 dx: 3
             },
             encoding: {
-                text: {field: "deaths_per_population", type: "quantitative"}
+                text: {field: "deaths_per_population", type: "quantitative"},
             }
         },
         ],

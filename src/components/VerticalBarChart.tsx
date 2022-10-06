@@ -12,7 +12,7 @@ const VerticalBarChart = ({width, height, state}: ChartProps) => {
         width: width,
         height: height,
         data: {
-            url: "data/cases/vax_cases.csv"
+            url: "data/vax/vax_boosters.csv"
         },
         transform: [{filter: {field: "state", equal: state}}],
         layer: [{
@@ -25,12 +25,16 @@ const VerticalBarChart = ({width, height, state}: ChartProps) => {
                 dy: -10,
             },
             encoding: {
-                text: {field: "value", type: "quantitative"}
+                text: {field: "value", type: "quantitative", format: ","}
             }
         }],
         encoding: {
-            x: {field: "variable", type: "nominal", axis: {labelAngle: 0}, title: "Vaccine Phases"},
-            y: {field: "value", type: "quantitative", title: "Number of Cases"},
+            x: {field: "variable", type: "nominal", axis: {labelAngle: 0}, title: "Booster Combo", sort: "-y"},
+            y: {aggregate: "sum", field: "value", type: "quantitative", title: "Number of Vaccinations"},
+            tooltip: [
+                {field: "variable", "type": "nominal", "title": "Booster Combo"},
+                {field: "value", "type": "quantitative", "title": "Number of Vaccinations", format: ","}
+            ]
         },
         config: {
             background: "transparent",

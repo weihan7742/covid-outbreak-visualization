@@ -27,6 +27,10 @@ const StackedAreaChart = ({width, height, state}: ChartProps) => {
             x: {field: "date", type: "temporal", title: "Date"},
             y: {field: "value", type: "quantitative", stack: "normalize"},
             color: {field: "variable", type: "nominal", title: "Vaccine Brand"},
+            tooltip: [
+                {field: "variable", "type": "nominal", "title": "Vaccine Brand"},
+                {field: "value", "type": "quantitative", "title": "Number of Vaccinations", format: ","}
+            ]
         },
         config: {
             background: "transparent",

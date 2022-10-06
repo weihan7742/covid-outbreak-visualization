@@ -19,6 +19,10 @@ const SingleStackedBar = ({width, height, state}: ChartProps) => {
         encoding: {
             y: {field: "value", type: "quantitative", title: "Number of Vaccinations"},
             color: {field: "variable", type: "nominal", title: "Vaccine Brand"},
+            tooltip: [
+                {field: "variable", "type": "nominal", "title": "Vaccine Brand"},
+                {field: "value", "type": "quantitative", "title": "Number of Vaccinations", format: ","}
+            ]
         },
         config: {
             background: "transparent",

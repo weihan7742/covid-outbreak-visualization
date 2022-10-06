@@ -108,7 +108,11 @@ const Home: NextPage = () => {
       <Divider />
 
       <Box w="100%">
-        <Map width={1355} height={500}/>
+        <Heading>CHOROPLETH MAP</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        <Map width={1335} height={500}/>
       </Box>
       <Grid
         w="100%"
@@ -116,10 +120,16 @@ const Home: NextPage = () => {
         gap={4}>
         <GridItem colSpan={4} >
         <Heading>DEATH PER 10K POPULATION</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
           <BarChart width={500} height={500}/>
         </GridItem>
         <GridItem colSpan={4}>
         <Heading>COVID CASES PER STATE</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
         <BubblePlot width={500} height={500}/>
         </GridItem>
       </Grid>
@@ -134,16 +144,25 @@ const Home: NextPage = () => {
         gap={4}>
         <GridItem colSpan={4} >
         <Heading>CASES BY AGE GROUP</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
         <DonutChart width={400} height={500} state={currentFlag.text}/>
         </GridItem>
         <GridItem colSpan={4}>
-        <Heading>CASES BY AGE GROUP</Heading>
+        <Heading>CASES BY VACCINATION STATUS</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
         <VerticalBarChart width={650} height={450} state={currentFlag.text}/>
         </GridItem>
       </Grid>
 
       <Box w="100%">
-        <Heading>CASES BY AGE GROUP</Heading>
+        <Heading>VACCINATIONS OVER TIME (LAST 6 MONTHS) </Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
         <DosesStackedBar width={1300} height={500} state={currentFlag.text}/>
       </Box>
 
@@ -153,14 +172,22 @@ const Home: NextPage = () => {
         gap={4}>
         <GridItem colSpan={2} >
         <Heading>VACCINE BRANDS</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing</Text>
         <SingleStackedBar width={150} height={500} state={currentFlag.text}/>
         </GridItem>
         <GridItem colSpan={6}>
         <Heading>VACCINE BRANDS OVER TIME</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        </Text>
         <StackedAreaChart width={1000} height={500} state={currentFlag.text}/>
         </GridItem>
       </Grid>
+      
+      <Divider>
+      </Divider>
 
+      <Text>Created by: Ng Wei Han</Text>
 
     </VStack>
   )

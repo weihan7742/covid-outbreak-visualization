@@ -36,12 +36,16 @@ const DosesStackedBar = ({width, height, state}: ChartProps) => {
             color: {
                 field: "variable",
                 type: "nominal",
-                title: "Phases",
+                title: "Vaccine Type",
                 scale: {
                     domain: ["1st Dose", "2nd Dose", "1st Booster", "2nd Booster"],
                     range: ["#F9C80E", "#F86624", "#4F46E5", "#2D9CDB"]
                 }
-            }
+            },
+            tooltip: [
+                {field: "variable", "type": "nominal", "title": "Vaccine Type"},
+                {field: "value", "type": "quantitative", "title": "Number of Doses", format: ","}
+            ]
         },
         config: {
             background: "transparent",

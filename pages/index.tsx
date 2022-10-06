@@ -180,7 +180,7 @@ const Home: NextPage = () => {
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         </Text>
-        <StackedAreaChart width={1000} height={500} state={currentFlag.text}/>
+        <StackedAreaChart width={1000} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
       </Grid>
       

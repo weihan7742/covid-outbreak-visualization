@@ -130,7 +130,7 @@ const Home: NextPage = () => {
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
-        <BubblePlot width={500} height={500}/>
+        <BubblePlot width={500} height={500} toggle={toggle}/>
         </GridItem>
       </Grid>
 

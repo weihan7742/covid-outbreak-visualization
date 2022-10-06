@@ -3,9 +3,10 @@ import { VegaLite, VisualizationSpec } from 'react-vega';
 type ChartProps = {
     width: number | "container";
     height: number | "container";
+    toggle: boolean;
 }
 
-const BubblePlot = ({width, height}: ChartProps) => {
+const BubblePlot = ({width, height, toggle}: ChartProps) => {
 
     const spec: VisualizationSpec = {
         width: width,
@@ -69,7 +70,6 @@ const BubblePlot = ({width, height}: ChartProps) => {
                         type: "nominal",
                         legend: null
                     },
-                    opacity: {"value": 0.5},
                     tooltip: [
                         {field: "state", "type": "nominal", "title": "State"},
                         {field: "cases_new", "type": "quantitative", "title": "Confirmed Cases", "format": ","},
@@ -84,13 +84,13 @@ const BubblePlot = ({width, height}: ChartProps) => {
                     type: "text",
                     align: "right",
                     baseline: "middle",
-                    dx: 70,
+                    dx: 80,
                     fontSize: 11.5,
                     fontStyle: "italic"
                 },
                 encoding: {
                     text: {"field": "state", "type": "nominal"},
-                    color: {"value": "black"},
+                    color: {"value": toggle ? "black" : "white"},
                     opacity: {
                         condition: {
                             test: "datum['state'] === 'Selangor' | datum['state'] === 'W.P. Labuan'",
@@ -106,17 +106,31 @@ const BubblePlot = ({width, height}: ChartProps) => {
             view: {
                 stroke: "transparent"
             },
+            text: {
+                color: toggle ? "black" : "white"
+            },
             axisX:{
                 // domain: false,
                 grid: false,
                 ticks: false,
-                title: null
+                title: null,
+                labelColor: toggle ? "black" : "white",
+                domainColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",                    
             },
             axisY: {
                 // domain: false,
                 grid: false,
                 ticks: false,
-                title: null
+                title: null,
+                labelColor: toggle ? "black" : "white",
+                domainColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",                
+            },
+            legend: {
+                labelColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",
+                symbolFillColor: toggle ? "black" : "white"                
             }
         }
     }

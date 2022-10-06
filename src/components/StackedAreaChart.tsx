@@ -49,6 +49,9 @@ const StackedAreaChart = ({width, height, state}: ChartProps) => {
                 grid: false,
                 ticks: false,
                 title: null
+            },
+            text: {
+                color: "white"
             }
         }
       }

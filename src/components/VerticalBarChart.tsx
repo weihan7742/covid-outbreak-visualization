@@ -3,10 +3,11 @@ import { VegaLite, VisualizationSpec } from 'react-vega';
 type ChartProps = {
     width: number | "container";
     height: number | "container";
-    state: string
+    state: string;
+    toggle: boolean;
 }
 
-const VerticalBarChart = ({width, height, state}: ChartProps) => {
+const VerticalBarChart = ({width, height, state, toggle}: ChartProps) => {
 
     const spec: VisualizationSpec = {
         width: width,
@@ -37,6 +38,9 @@ const VerticalBarChart = ({width, height, state}: ChartProps) => {
             ]
         },
         config: {
+            text: {
+                color: toggle ? "black" : "white"
+            },
             background: "transparent",
             view: {
                 stroke: "transparent"
@@ -46,15 +50,21 @@ const VerticalBarChart = ({width, height, state}: ChartProps) => {
                 grid: false,
                 ticks: false,
                 // labels: false,
-                title: null
+                title: null,
+                labelColor: toggle ? "black" : "white",
+                domainColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",                
             },
             axisY: {
                 domain: false,
                 grid: false,
                 ticks: false,
-                title: null
+                title: null,
+                labelColor: toggle ? "black" : "white",
+                domainColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",                
             }
-        }
+        },
       }
 
     return (

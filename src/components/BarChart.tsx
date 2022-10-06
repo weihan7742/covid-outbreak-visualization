@@ -27,7 +27,10 @@ const BarChart = ({width, height, toggle}: BarChartProps) => {
             ]
         },
         layer: [{
-            mark: "bar"
+            mark: "bar",
+            encoding: {
+                color: {value: toggle ? "#2B7AB9" : "#8ECEFC"}
+            }
         }, {
             mark: {
                 type: "text",
@@ -37,7 +40,7 @@ const BarChart = ({width, height, toggle}: BarChartProps) => {
             },
             encoding: {
                 text: {field: "deaths_per_population", type: "quantitative"},
-            }
+            },
         },
         ],
         config: {

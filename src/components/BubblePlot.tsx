@@ -68,7 +68,8 @@ const BubblePlot = ({width, height, toggle}: ChartProps) => {
                         field: "state",
                         title: "State",
                         type: "nominal",
-                        legend: null
+                        legend: null,
+                        scale: {scheme: "category20c"}
                     },
                     tooltip: [
                         {field: "state", "type": "nominal", "title": "State"},

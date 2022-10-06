@@ -33,7 +33,7 @@ const Map = ({width, height, toggle}: MapProps) => {
         }],
         mark: {
             type: "geoshape",
-            stroke: "darkgray"
+            stroke: "gray"
         },
         projection: {
             type: "equirectangular"
@@ -43,6 +43,9 @@ const Map = ({width, height, toggle}: MapProps) => {
                 field: "cases_per_100k",
                 type: "quantitative",
                 title: "Cases per 100k Population",
+                scale: {
+                    scheme: "blues",
+                }
             },
             tooltip: [
                 {

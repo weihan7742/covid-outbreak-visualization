@@ -20,7 +20,11 @@ const DosesStackedBar = ({width, height, state, toggle}: ChartProps) => {
             {filter: {field: "date", range: [
                 {year: 2022, month: 3, date: 10},
                 {year: 2022, month: 9, date: 10}
-            ]}}
+            ]}},
+            {
+                calculate: 'indexof(["1st Dose", "2nd Dose", "1st Booster", "2nd Booster"], datum.variable)',
+                as: "order"
+            }
         ],
         mark: "bar",
         encoding: {
@@ -40,9 +44,10 @@ const DosesStackedBar = ({width, height, state, toggle}: ChartProps) => {
                 title: "Vaccine Type",
                 scale: {
                     domain: ["1st Dose", "2nd Dose", "1st Booster", "2nd Booster"],
-                    range: ["#F9C80E", "#F86624", "#4F46E5", "#2D9CDB"]
+                    range: toggle ? ["#3657B6", "#639DF1", "#8ECEFC", '#AEE8FE'] : ["#4C78D9", "#8ECEFC", "#AEE8FE", "#D8F9FF"] 
                 }
             },
+            order: {field: "order", type: "ordinal"},
             tooltip: [
                 {field: "date", "type": "temporal", "title": "Date", format: "%d-%b-%Y"},
                 {field: "variable", "type": "nominal", "title": "Vaccine Type"},

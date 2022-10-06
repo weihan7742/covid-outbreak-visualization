@@ -27,7 +27,11 @@ const StackedAreaChart = ({width, height, state, toggle}: ChartProps) => {
         encoding: {
             x: {field: "date", type: "temporal", title: "Date"},
             y: {field: "value", type: "quantitative", stack: "normalize"},
-            color: {field: "variable", type: "nominal", title: "Vaccine Brand"},
+            color: {field: "variable", type: "nominal", title: "Vaccine Brand",
+            scale: {
+                domain: ["AstraZeneca", "Cansino", "Pfizer", "Sinopharm", "Sinovac"],
+                range: ["#3657B6", "#4C78D9", "#8ECEFC", "#F9AE6B", "#F88D3D"]
+            }},
             tooltip: [
                 {field: "date", "type": "temporal", "title": "Date", format: "%d-%b-%Y"},
                 {field: "variable", "type": "nominal", "title": "Vaccine Brand"},

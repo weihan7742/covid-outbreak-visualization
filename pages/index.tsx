@@ -48,17 +48,6 @@ const Home: NextPage = () => {
   const [modeText, setModeText] = useState<string>('Dark Mode');
   const [currentFlag, setCurrentFlag] = useState<IFlag>( {src: 'icons/state/selangor.png', text: 'Selangor'})
 
-  useEffect(() => {
-    console.log(currentFlag)  
-  }, [currentFlag])
-
-  const total_data = {
-    total_population: 32657100, 
-    total_cases: 4803624, 
-    total_deaths: 36277, 
-    total_vax: 27879191, 
-  }
-
   const flags = [
     {src: 'icons/state/johor.png', text: 'Johor'},
     {src: 'icons/state/kedah.png', text: 'Kedah'},
@@ -78,8 +67,10 @@ const Home: NextPage = () => {
     {src: 'icons/state/w.p. putrajaya.png', text: 'W.P. Putrajaya'},
   ]
 
+  // "#F3F4F6" 1A202C
+
   return (
-    <VStack paddingX={200} paddingY={50}>
+    <VStack paddingX={200} paddingY={50} backgroundColor = {toggle ? '#F3F4F6' : '#1A202C'}>
       <Head>
         <title>COVID in Malaysia</title>
       </Head>
@@ -138,26 +129,6 @@ const Home: NextPage = () => {
       <SelectFlag flags={flags} value={currentFlag} onChange={(newFlag) => {setCurrentFlag(newFlag)}}/>
       </Box>
 
-      <Grid
-        w="100%"
-        templateColumns='repeat(8, 1fr)'
-        gap={4}>
-        <GridItem colSpan={4} >
-        <Heading>CASES BY AGE GROUP</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
-        <DonutChart width={400} height={500} state={currentFlag.text} toggle={toggle}/>
-        </GridItem>
-        <GridItem colSpan={4}>
-        <Heading>CASES BY VACCINATION STATUS</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
-        <VerticalBarChart width={650} height={450} state={currentFlag.text} toggle={toggle}/>
-        </GridItem>
-      </Grid>
-
       <Box w="100%">
         <Heading>VACCINATIONS OVER TIME (LAST 6 MONTHS) </Heading>
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
@@ -170,17 +141,39 @@ const Home: NextPage = () => {
         w="100%"
         templateColumns='repeat(8, 1fr)'
         gap={4}>
-        <GridItem colSpan={2} >
-        <Heading>VACCINE BRANDS</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing</Text>
-        <SingleStackedBar width={150} height={500} state={currentFlag.text} toggle={toggle}/>
+        <GridItem colSpan={3} >
+        <Heading>CASES BY AGE GROUP</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        <DonutChart width={400} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
-        <GridItem colSpan={6}>
+        <GridItem colSpan={5}>
+        <Heading>CASES BY VACCINATION STATUS</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        <VerticalBarChart width={750} height={450} state={currentFlag.text} toggle={toggle}/>
+        </GridItem>
+      </Grid>
+
+      <Grid
+        w="100%"
+        templateColumns='repeat(8, 1fr)'
+        gap={4}>
+        <GridItem colSpan={3} >
+        <Heading>VACCINE BRANDS</Heading>
+        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        <SingleStackedBar width={320} height={500} state={currentFlag.text} toggle={toggle}/>
+        </GridItem>
+        <GridItem colSpan={5}>
         <Heading>VACCINE BRANDS OVER TIME</Heading>
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         </Text>
-        <StackedAreaChart width={1000} height={500} state={currentFlag.text} toggle={toggle}/>
+        <StackedAreaChart width={750} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
       </Grid>
       

@@ -17,7 +17,10 @@ const VerticalBarChart = ({width, height, state, toggle}: ChartProps) => {
         },
         transform: [{filter: {field: "state", equal: state}}],
         layer: [{
-            mark: "bar"
+            mark: "bar",
+            encoding: {
+                color: {value: toggle ? "#2B7AB9" : "#8ECEFC"}
+            }
         }, {
             mark: {
                 type: "text",

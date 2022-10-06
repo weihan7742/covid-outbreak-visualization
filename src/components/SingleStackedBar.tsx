@@ -16,10 +16,17 @@ const SingleStackedBar = ({width, height, state, toggle}: ChartProps) => {
             url: "data/vax/total_vax.csv"
         },
         transform: [{filter: {field: "state", equal: state}}],
-        mark: "bar",
+        mark: {
+            type: "bar",
+            width: 100,
+        },
         encoding: {
             y: {field: "value", type: "quantitative", title: "Number of Vaccinations"},
-            color: {field: "variable", type: "nominal", title: "Vaccine Brand"},
+            color: {field: "variable", type: "nominal", title: "Vaccine Brand", 
+            scale: {
+                domain: ["AstraZeneca", "Cansino", "Pfizer", "Sinopharm", "Sinovac"],
+                range: ["#3657B6", "#4C78D9", "#8ECEFC", "#F9AE6B", "#F88D3D"]
+            }},
             tooltip: [
                 {field: "variable", "type": "nominal", "title": "Vaccine Brand"},
                 {field: "value", "type": "quantitative", "title": "Number of Vaccinations", format: ","}

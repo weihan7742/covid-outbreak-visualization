@@ -19,7 +19,7 @@ const DonutChart = ({width, height, state, toggle}: ChartProps) => {
         mark: {type: "arc", innerRadius: 100},
         encoding: {
             theta: {field: "value", type: "quantitative"},
-            color: {field: "variable", type: "nominal", title: "Age Group"},
+            color: {field: "variable", type: "nominal", title: "Age Group", scale: {scheme: "category20c"}},
             tooltip: [
                 {field: "variable", "type": "nominal", "title": "Age Group"},
                 {field: "value", "type": "quantitative", "title": "Cases", format: ","}

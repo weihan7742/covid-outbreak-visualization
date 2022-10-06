@@ -3,9 +3,10 @@ import { VegaLite, VisualizationSpec } from 'react-vega';
 type BarChartProps = {
     width: number | "container";
     height: number | "container";
+    toggle: boolean;
 }
 
-const BarChart = ({width, height}: BarChartProps) => {
+const BarChart = ({width, height, toggle}: BarChartProps) => {
 
     const spec: VisualizationSpec = {
         width: width,
@@ -40,6 +41,9 @@ const BarChart = ({width, height}: BarChartProps) => {
         },
         ],
         config: {
+            text: {
+                color: toggle ? "black" : "white"
+            },
             background: "transparent",
             view: {
                 stroke: "transparent"
@@ -49,13 +53,19 @@ const BarChart = ({width, height}: BarChartProps) => {
                 grid: false,
                 ticks: false,
                 labels: false,
-                title: null
+                title: null,
+                labelColor: toggle ? "black" : "white",
+                domainColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",  
             },
             axisY: {
                 domain: false,
                 grid: false,
                 ticks: false,
-                title: null
+                title: null,
+                labelColor: toggle ? "black" : "white",
+                domainColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",  
             }
         }
       }

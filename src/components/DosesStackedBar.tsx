@@ -3,10 +3,11 @@ import { VegaLite, VisualizationSpec } from 'react-vega';
 type ChartProps = {
     width: number | "container";
     height: number | "container";
-    state: string
+    state: string;
+    toggle: boolean;
 }
 
-const DosesStackedBar = ({width, height, state}: ChartProps) => {
+const DosesStackedBar = ({width, height, state, toggle}: ChartProps) => {
 
     const spec: VisualizationSpec = {
         width: width,
@@ -43,6 +44,7 @@ const DosesStackedBar = ({width, height, state}: ChartProps) => {
                 }
             },
             tooltip: [
+                {field: "date", "type": "temporal", "title": "Date", format: "%d-%b-%Y"},
                 {field: "variable", "type": "nominal", "title": "Vaccine Type"},
                 {field: "value", "type": "quantitative", "title": "Number of Doses", format: ","}
             ]
@@ -56,14 +58,27 @@ const DosesStackedBar = ({width, height, state}: ChartProps) => {
                 domain: false,
                 grid: false,
                 ticks: false,
-                labels: false,
-                title: null
+                title: null,
+                labelColor: toggle ? "black" : "white",
+                domainColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",  
             },
             axisY: {
                 domain: false,
                 grid: false,
                 ticks: false,
-                title: null
+                title: null,
+                labelColor: toggle ? "black" : "white",
+                domainColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",  
+            },
+            text: {
+                color: "white"
+            },
+            legend: {
+                labelColor: toggle ? "black" : "white",
+                titleColor: toggle ? "black" : "white",
+                symbolFillColor: toggle ? "black" : "white"                
             }
         }
       }

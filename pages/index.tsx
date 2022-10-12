@@ -158,12 +158,22 @@ const Home: NextPage = () => {
         <GridItem colSpan={5}>
         <Heading>TOTAL VACCINATIONS BY BOOSTER COMBO</Heading>
         <Box marginBottom='5'>
-          <Text marginBottom='5' fontSize={18} as='span'>'a' represents Astrazenica;   
-          'c' represents Cansino;  
-          'h' represents Sinopharm;  
-          'p' represents Pfizer; 
-          's' represents Sinovac.
-          </Text>
+          <Text marginBottom='5' fontSize={18} as='span' fontStyle='italic'>a</Text>
+          <Text marginBottom='5' fontSize={18} as='span'> represents Astrazenica,</Text>
+
+          <Text marginBottom='5' fontSize={18} as='span' fontStyle='italic'> c</Text>
+          <Text marginBottom='5' fontSize={18} as='span'> represents Cansino,</Text>
+
+          <Text marginBottom='5' fontSize={18} as='span' fontStyle='italic'> h</Text>
+          <Text marginBottom='5' fontSize={18} as='span'> represents Sinopharm,</Text>
+
+          <Text marginBottom='5' fontSize={18} as='span' fontStyle='italic'> p</Text>
+          <Text marginBottom='5' fontSize={18} as='span'> represents Pfizer,</Text>
+
+          <Text marginBottom='5' fontSize={18} as='span' fontStyle='italic'> and s</Text>
+          <Text marginBottom='5' fontSize={18} as='span'> represents Sinovac.</Text>
+
+
         </Box>
 
         <VerticalBarChart width={750} height={450} state={currentFlag.text} toggle={toggle}/>

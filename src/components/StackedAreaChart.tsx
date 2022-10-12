@@ -51,7 +51,9 @@ const StackedAreaChart = ({width, height, state, toggle}: ChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",    
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                     
             },
             axisY: {
                 domain: false,
@@ -60,7 +62,9 @@ const StackedAreaChart = ({width, height, state, toggle}: ChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",    
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                     
             },
             text: {
                 color: "white"
@@ -68,7 +72,9 @@ const StackedAreaChart = ({width, height, state, toggle}: ChartProps) => {
             legend: {
                 labelColor: toggle ? "black" : "white",
                 titleColor: toggle ? "black" : "white",
-                symbolFillColor: toggle ? "black" : "white"                
+                symbolFillColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                                 
             }
         }
       }

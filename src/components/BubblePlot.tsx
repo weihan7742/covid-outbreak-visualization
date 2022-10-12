@@ -76,7 +76,7 @@ const BubblePlot = ({width, height, toggle}: ChartProps) => {
                         {field: "cases_new", "type": "quantitative", "title": "Confirmed Cases", "format": ","},
                         {field: "deaths", "type": "quantitative", "title": "Deaths", "format": ","},
                         {field: "pop", "type": "quantitative", "title": "Population", "format": ","},
-                        {field: "Cases per 10,000 Population", "type": "quantitative", "format": ".2f"}
+                        {field: "Cases per 10,000 Population", "type": "quantitative", "format": ".2f"},
                     ]
                 }
             },
@@ -117,7 +117,9 @@ const BubblePlot = ({width, height, toggle}: ChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",                    
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                     
             },
             axisY: {
                 // domain: false,
@@ -126,13 +128,18 @@ const BubblePlot = ({width, height, toggle}: ChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",                
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13, 
             },
             legend: {
                 labelColor: toggle ? "black" : "white",
                 titleColor: toggle ? "black" : "white",
-                symbolFillColor: toggle ? "black" : "white"                
-            }
+                symbolFillColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                
+            },
+            font: 'Montserrat',
         }
     }
 

@@ -56,7 +56,9 @@ const VerticalBarChart = ({width, height, state, toggle}: ChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",                
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,               
             },
             axisY: {
                 domain: false,
@@ -65,7 +67,13 @@ const VerticalBarChart = ({width, height, state, toggle}: ChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",                
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,             
+            },
+            font: 'Montserrat',
+            mark: {
+                fontSize: 14
             }
         },
       }

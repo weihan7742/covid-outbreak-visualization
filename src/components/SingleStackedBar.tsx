@@ -45,7 +45,9 @@ const SingleStackedBar = ({width, height, state, toggle}: ChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",  
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                   
             },
             axisY: {
                 domain: false,
@@ -54,7 +56,9 @@ const SingleStackedBar = ({width, height, state, toggle}: ChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",  
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                   
             },
             text: {
                 color: "white"
@@ -62,8 +66,11 @@ const SingleStackedBar = ({width, height, state, toggle}: ChartProps) => {
             legend: {
                 labelColor: toggle ? "black" : "white",
                 titleColor: toggle ? "black" : "white",
-                symbolFillColor: toggle ? "black" : "white"                
-            }
+                symbolFillColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                                 
+            },
+            font: 'Montserrat',
         }
       }
 

@@ -1,14 +1,16 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ChakraProvider, extendTheme, ColorModeScript } from '@chakra-ui/react';
+import '@fontsource/bebas-neue/400.css';
+import '@fontsource/montserrat/400.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
   // TODO: Change theme here!
   const theme = extendTheme({
     fonts: {
-      heading: 'Inter',
-      body: 'Inter',
+      heading: 'Bebas Neue',
+      body: 'Montserrat',
     }
   });
 

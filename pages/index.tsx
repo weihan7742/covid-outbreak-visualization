@@ -72,11 +72,14 @@ const Home: NextPage = () => {
   return (
     <VStack paddingX={200} paddingY={50} backgroundColor = {toggle ? '#F3F4F6' : '#1A202C'}>
       <Head>
-        <title>COVID in Malaysia</title>
+        <title>COVID-19 in Malaysia</title>
       </Head>
       
-      <Flex w="100%">
-        <Heading size="3xl" fontWeight='semibold' >COVID In Malaysia</Heading>
+      <Flex w="100%" alignItems='center' marginBottom='10'>
+        {toggle 
+        ? <Image src="icons/coronavirus-light.png" alt="COVID" boxSize={100} marginRight='5'/>
+        : <Image src="icons/coronavirus-dark.png" alt="COVID" boxSize={100} marginRight='5'/>      }
+        <Heading size="4xl" fontWeight='semibold' >COVID-19 Outbreak In Malaysia</Heading>
         <Spacer></Spacer>
         <HStack>
           <Text>{modeText}</Text>
@@ -93,16 +96,12 @@ const Home: NextPage = () => {
         </HStack>
 
       </Flex>
-      <Box w="100%">
-        <Heading size="xl">Sub Title</Heading>
-      </Box>
-      <Divider />
 
       <Box w="100%">
-        <Heading>CHOROPLETH MAP</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <Heading>CASES PER 100K POPULATION OF EACH STATE</Heading>
+        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        numquam blanditiis harum</Text>
         <Map width={1335} height={500} toggle={toggle}/>
       </Box>
       <Grid
@@ -111,14 +110,14 @@ const Home: NextPage = () => {
         gap={4}>
         <GridItem colSpan={4} >
         <Heading>DEATH PER 10K POPULATION</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
           <BarChart width={500} height={500} toggle={toggle}/>
         </GridItem>
-        <GridItem colSpan={4}>
-        <Heading>COVID CASES PER STATE</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <GridItem colSpan={4} marginBottom='10'>
+        <Heading>STATES </Heading>
+        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
         <BubblePlot width={500} height={500} toggle={toggle}/>
@@ -126,31 +125,31 @@ const Home: NextPage = () => {
       </Grid>
 
       <Box w="100%">
-      <SelectFlag flags={flags} value={currentFlag} onChange={(newFlag) => {setCurrentFlag(newFlag)}}/>
+        <SelectFlag flags={flags} value={currentFlag} onChange={(newFlag) => {setCurrentFlag(newFlag)}}/>
       </Box>
 
-      <Box w="100%">
+      <Box w="100%" paddingTop='5'>
         <Heading>VACCINATIONS OVER TIME (LAST 6 MONTHS) </Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        numquam blanditiis harum</Text>
         <DosesStackedBar width={1300} height={500} state={currentFlag.text} toggle={toggle}/>
       </Box>
 
       <Grid
         w="100%"
         templateColumns='repeat(8, 1fr)'
+        paddingTop='10'
         gap={4}>
-        <GridItem colSpan={3} >
+        <GridItem colSpan={3}>
         <Heading>CASES BY AGE GROUP</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae</Text>
         <DonutChart width={400} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
         <GridItem colSpan={5}>
-        <Heading>CASES BY VACCINATION STATUS</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <Heading>TOTAL VACCINATIONS BY BOOSTER COMBO</Heading>
+        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
         <VerticalBarChart width={750} height={450} state={currentFlag.text} toggle={toggle}/>
@@ -162,15 +161,14 @@ const Home: NextPage = () => {
         templateColumns='repeat(8, 1fr)'
         gap={4}>
         <GridItem colSpan={3} >
-        <Heading>VACCINE BRANDS</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        <Heading>PROPORTION OF VACCINE BRANDS</Heading>
+        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae</Text>
         <SingleStackedBar width={320} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
         <GridItem colSpan={5}>
-        <Heading>VACCINE BRANDS OVER TIME</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <Heading>PROPORTION OF VACCINE BRANDS OVER TIME (LAST 3 MONTHS)</Heading>
+        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         </Text>
         <StackedAreaChart width={750} height={500} state={currentFlag.text} toggle={toggle}/>

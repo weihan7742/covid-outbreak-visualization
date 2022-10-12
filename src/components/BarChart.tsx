@@ -68,8 +68,15 @@ const BarChart = ({width, height, toggle}: BarChartProps) => {
                 title: null,
                 labelColor: toggle ? "black" : "white",
                 domainColor: toggle ? "black" : "white",
-                titleColor: toggle ? "black" : "white",  
-            }
+                titleColor: toggle ? "black" : "white",
+                labelFontSize: 12,
+                titleFontSize: 13,                   
+            },
+            mark: {
+                font: "Bebas Neue",
+                fontSize: 15,
+            },
+            font: 'Montserrat',
         }
       }
 

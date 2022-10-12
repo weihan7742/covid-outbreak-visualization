@@ -65,7 +65,10 @@ const Map = ({width, height, toggle}: MapProps) => {
             legend: {
                 labelColor: toggle ? "black" : "white",
                 titleColor: toggle ? "black" : "white",
-            }
+                labelFontSize: 12,
+                titleFontSize: 12,
+            },
+            font: 'Montserrat',
         }
       }
 

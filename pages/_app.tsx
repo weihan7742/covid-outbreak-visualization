@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
   <ChakraProvider theme={theme}>
-    <ColorModeScript initialColorMode="light" />
+    <ColorModeScript initialColorMode="dark" />
     <Component {...pageProps} />
   </ChakraProvider>)
 }

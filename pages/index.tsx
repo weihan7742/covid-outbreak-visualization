@@ -116,7 +116,7 @@ const Home: NextPage = () => {
           <BarChart width={500} height={500} toggle={toggle}/>
         </GridItem>
         <GridItem colSpan={4} marginBottom='10'>
-        <Heading>STATES </Heading>
+        <Heading>Deaths vs Confirmed Cases</Heading>
         <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>

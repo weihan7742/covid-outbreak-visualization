@@ -31,13 +31,30 @@ const Map = ({width, height, toggle}: MapProps) => {
                 fields: ["cases_per_100k"]
             },
         }],
-        mark: {
-            type: "geoshape",
-            stroke: "gray"
-        },
-        projection: {
-            type: "equirectangular"
-        },
+        layer: [
+            {
+                mark: {
+                    type: "geoshape",
+                    stroke: toggle ? "gray" : "white"
+                },
+                projection: {
+                    type: "equirectangular"
+                },
+            },
+            {
+                // Label each state
+                mark: {
+                    type: "text",
+                    align: "center",
+                    baseline: "middle",
+                    fontSize: 10,
+                    fontWeight: 500,
+                    dx: 0,
+                    dy: 0,
+                    fill: toggle ? "black" : "white"
+                },
+            }
+        ],
         encoding: {
             color: {
                 field: "cases_per_100k",

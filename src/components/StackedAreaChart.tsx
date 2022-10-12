@@ -30,7 +30,7 @@ const StackedAreaChart = ({width, height, state, toggle}: ChartProps) => {
             color: {field: "variable", type: "nominal", title: "Vaccine Brand",
             scale: {
                 domain: ["AstraZeneca", "Cansino", "Pfizer", "Sinopharm", "Sinovac"],
-                range: ["#3657B6", "#4C78D9", "#8ECEFC", "#F9AE6B", "#F88D3D"]
+                range: ["#E6550E", "#32904F", "#8ECEFC", "#756BB1", "#F88D3D"]
             }},
             tooltip: [
                 {field: "date", "type": "temporal", "title": "Date", format: "%d-%b-%Y"},

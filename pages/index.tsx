@@ -79,7 +79,10 @@ const Home: NextPage = () => {
         {toggle 
         ? <Image src="icons/coronavirus-light.png" alt="COVID" boxSize={100} marginRight='5'/>
         : <Image src="icons/coronavirus-dark.png" alt="COVID" boxSize={100} marginRight='5'/>      }
-        <Heading size="4xl" fontWeight='semibold' >COVID-19 Outbreak In Malaysia</Heading>
+        <VStack alignItems='left'>
+          <Heading size="4xl" fontWeight='semibold' >COVID-19 Outbreak In Malaysia</Heading>
+          <Text>Period: 25/01/2020 - 10/09/2022</Text>
+        </VStack>
         <Spacer></Spacer>
         <HStack>
           <Text>{modeText}</Text>
@@ -99,27 +102,32 @@ const Home: NextPage = () => {
 
       <Box w="100%">
         <Heading>CASES PER 100K POPULATION OF EACH STATE</Heading>
-        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum</Text>
-        <Map width={1335} height={500} toggle={toggle}/>
+        <Text marginBottom='5' fontSize={18} as='span'>The choropleth map below shows that</Text>
+        <Text marginBottom='5' fontSize={18} as='span' fontWeight='800'> Kuala Lumpur and Negeri Sembilan </Text>
+        <Text marginBottom='5' fontSize={18} as='span'>have the highest number of cases per 100k population.</Text>
+        <Map width={1300} height={500} toggle={toggle}/>
       </Box>
       <Grid
         w="100%"
         templateColumns='repeat(8, 1fr)'
-        gap={4}>
+        gap='16'>
         <GridItem colSpan={4} >
-        <Heading>DEATH PER 10K POPULATION</Heading>
-        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
-          <BarChart width={500} height={500} toggle={toggle}/>
+        <Heading>DEATHS PER 10K POPULATION</Heading>
+        <Box marginBottom='5'>
+        <Text marginBottom='5' fontSize={18} as='span'>We can observe that</Text>
+        <Text marginBottom='5' fontSize={18} as='span' fontWeight='800'> Kuala Lumpur and Labuan</Text>
+        <Text marginBottom='5' fontSize={18} as='span'> have the highest deaths per 10K population.</Text>
+        </Box>
+        
+        <BarChart width={500} height={500} toggle={toggle}/>
         </GridItem>
         <GridItem colSpan={4} marginBottom='10'>
-        <Heading>Deaths vs Confirmed Cases</Heading>
-        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        <Heading>Deaths vs Confirmed Cases of EACH STATE</Heading>
+        <Box marginBottom='5'>
+          <Text marginBottom='5' fontSize={18} as='span'>The state of</Text>
+          <Text marginBottom='5' fontSize={18} as='span' fontWeight='800'> Selangor</Text>
+          <Text marginBottom='5' fontSize={18} as='span'>, which has the largest population size, has the highest number of confirmed cases and the highest number of deaths.</Text>
+        </Box>
         <BubblePlot width={500} height={500} toggle={toggle}/>
         </GridItem>
       </Grid>
@@ -130,9 +138,7 @@ const Home: NextPage = () => {
 
       <Box w="100%" paddingTop='5'>
         <Heading>VACCINATIONS OVER TIME (LAST 6 MONTHS) </Heading>
-        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum</Text>
+        <Text marginBottom='5' fontSize={18}>As Malaysia heads toward the endemic phase, most people have at least taken 1st dose or 2nd dose, and more people are taking booster shots.</Text>
         <DosesStackedBar width={1300} height={500} state={currentFlag.text} toggle={toggle}/>
       </Box>
 
@@ -140,18 +146,26 @@ const Home: NextPage = () => {
         w="100%"
         templateColumns='repeat(8, 1fr)'
         paddingTop='10'
-        gap={4}>
+        gap='16'>
         <GridItem colSpan={3}>
         <Heading>CASES BY AGE GROUP</Heading>
-        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae</Text>
+        <Box marginBottom='5'>
+          <Text marginBottom='5' fontSize={18} as='span'>A significant proportion of the age group affected by COVID-19 is the</Text>
+          <Text marginBottom='5' fontSize={18} as='span' fontWeight='800'> young adult category (18-29).</Text>
+        </Box>
         <DonutChart width={400} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
         <GridItem colSpan={5}>
         <Heading>TOTAL VACCINATIONS BY BOOSTER COMBO</Heading>
-        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto</Text>
+        <Box marginBottom='5'>
+          <Text marginBottom='5' fontSize={18} as='span'>'a' represents Astrazenica;   
+          'c' represents Cansino;  
+          'h' represents Sinopharm;  
+          'p' represents Pfizer; 
+          's' represents Sinovac.
+          </Text>
+        </Box>
+
         <VerticalBarChart width={750} height={450} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
       </Grid>
@@ -159,18 +173,26 @@ const Home: NextPage = () => {
       <Grid
         w="100%"
         templateColumns='repeat(8, 1fr)'
-        gap={4}>
+        gap='16'>
         <GridItem colSpan={3} >
-        <Heading>PROPORTION OF VACCINE BRANDS</Heading>
-        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae</Text>
+        <Heading>TOTAL PROPORTION OF VACCINE BRANDS</Heading>
+        <Box marginBottom='5'>
+          <Text marginBottom='5' fontSize={18} as='span'>For every state,</Text>
+          <Text marginBottom='5' fontSize={18} as='span' fontWeight='800'> Pfizer</Text>
+          <Text marginBottom='5' fontSize={18} as='span'> is the most prevalent vaccine brand among all others.</Text>
+        </Box>
         <SingleStackedBar width={320} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
+
         <GridItem colSpan={5}>
         <Heading>PROPORTION OF VACCINE BRANDS OVER TIME (LAST 3 MONTHS)</Heading>
-        <Text marginBottom='5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        </Text>
+        <Box marginBottom='5'>
+          <Text marginBottom='5' fontSize={18} as='span'>We can observe that the people in each state prefer different vaccine brands over time, even though</Text>
+          <Text marginBottom='5' fontSize={18} as='span' fontWeight='800'> Pfizer</Text>
+          <Text marginBottom='5' fontSize={18} as='span'> is still the most popular.</Text>
+        
+        </Box>
+
         <StackedAreaChart width={750} height={500} state={currentFlag.text} toggle={toggle}/>
         </GridItem>
       </Grid>

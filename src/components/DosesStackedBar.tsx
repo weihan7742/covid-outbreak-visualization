@@ -44,7 +44,7 @@ const DosesStackedBar = ({width, height, state, toggle}: ChartProps) => {
                 title: "Vaccine Type",
                 scale: {
                     domain: ["1st Dose", "2nd Dose", "1st Booster", "2nd Booster"],
-                    range: toggle ? ["#3657B6", "#639DF1", "#8ECEFC", '#AEE8FE'] : ["#4C78D9", "#8ECEFC", "#AEE8FE", "#D8F9FF"] 
+                    range: toggle ? ["#3657B6", "#8ECEFC", "#E6550E", '#32904F'] : ["#3657B6", "#8ECEFC", "#E6550E", '#32904F'] 
                 }
             },
             order: {field: "order", type: "ordinal"},
